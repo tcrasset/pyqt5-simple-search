@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>733</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,16 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListView" name="output_list">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>256</width>
-      <height>541</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="inserer_button">
     <property name="geometry">
      <rect>
@@ -147,19 +137,6 @@
      <string>J</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>280</y>
-      <width>31</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>C</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="supprimer_button">
     <property name="geometry">
      <rect>
@@ -197,16 +174,6 @@
     </property>
     <property name="text">
      <string>Nom bonhomme</string>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="output_box">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>150</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
     </property>
    </widget>
    <widget class="QLineEdit" name="corps_text_input">
@@ -279,13 +246,23 @@
      </rect>
     </property>
    </widget>
+   <widget class="QTextEdit" name="output_field">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>140</y>
+      <width>401</width>
+      <height>401</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>733</width>
      <height>20</height>
     </rect>
    </property>

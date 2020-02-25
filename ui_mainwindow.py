@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Tue Feb 25 11:18:08 2020
+# Created: Tue Feb 25 14:17:14 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,12 +13,9 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(733, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.output_list = QtWidgets.QListView(self.centralwidget)
-        self.output_list.setGeometry(QtCore.QRect(10, 10, 256, 541))
-        self.output_list.setObjectName("output_list")
         self.inserer_button = QtWidgets.QPushButton(self.centralwidget)
         self.inserer_button.setGeometry(QtCore.QRect(510, 100, 80, 23))
         self.inserer_button.setAccessibleName("")
@@ -48,9 +45,6 @@ class Ui_MainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(490, 20, 31, 16))
         self.label_7.setObjectName("label_7")
-        self.label_8 = QtWidgets.QLabel(self.centralwidget)
-        self.label_8.setGeometry(QtCore.QRect(480, 280, 31, 16))
-        self.label_8.setObjectName("label_8")
         self.supprimer_button = QtWidgets.QPushButton(self.centralwidget)
         self.supprimer_button.setGeometry(QtCore.QRect(600, 100, 80, 23))
         self.supprimer_button.setAccessibleName("")
@@ -61,9 +55,6 @@ class Ui_MainWindow(object):
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
         self.label_9.setGeometry(QtCore.QRect(280, 80, 111, 16))
         self.label_9.setObjectName("label_9")
-        self.output_box = QtWidgets.QTextBrowser(self.centralwidget)
-        self.output_box.setGeometry(QtCore.QRect(280, 150, 256, 192))
-        self.output_box.setObjectName("output_box")
         self.corps_text_input = QtWidgets.QLineEdit(self.centralwidget)
         self.corps_text_input.setGeometry(QtCore.QRect(290, 40, 21, 23))
         self.corps_text_input.setObjectName("corps_text_input")
@@ -85,9 +76,12 @@ class Ui_MainWindow(object):
         self.yeux_text_input = QtWidgets.QLineEdit(self.centralwidget)
         self.yeux_text_input.setGeometry(QtCore.QRect(580, 40, 21, 23))
         self.yeux_text_input.setObjectName("yeux_text_input")
+        self.output_field = QtWidgets.QTextEdit(self.centralwidget)
+        self.output_field.setGeometry(QtCore.QRect(280, 140, 401, 401))
+        self.output_field.setObjectName("output_field")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 733, 20))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -108,7 +102,6 @@ class Ui_MainWindow(object):
         self.label_5.setText(QtWidgets.QApplication.translate("MainWindow", "D", None, -1))
         self.label_6.setText(QtWidgets.QApplication.translate("MainWindow", "Y", None, -1))
         self.label_7.setText(QtWidgets.QApplication.translate("MainWindow", "J", None, -1))
-        self.label_8.setText(QtWidgets.QApplication.translate("MainWindow", "C", None, -1))
         self.supprimer_button.setText(QtWidgets.QApplication.translate("MainWindow", "Supprimer", None, -1))
         self.label_9.setText(QtWidgets.QApplication.translate("MainWindow", "Nom bonhomme", None, -1))
 
