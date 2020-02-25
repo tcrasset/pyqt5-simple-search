@@ -1,20 +1,17 @@
 import sys
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import *
-from PySide2.QtCore import *
-
+from PySide2.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QTextBrowser, QMainWindow
+from PySide2.QtCore import QFile, Slot
+from ui_mainwindow import Ui_MainWindow
 # from PyQt5.QtGui import *
 # from PyQt5.QtCore import QFile
 # from PyQt5.QtWidgets import *
-
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        self.show()
 
 
 @Slot()
@@ -24,14 +21,8 @@ def say_hello():
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    ui_file = QFile("mainwindow.ui")
-    ui_file.open(QFile.ReadOnly)
+    window = MainWindow()
 
-    loader = QUiLoader()
-    window = loader.load(ui_file)
-    ui_file.close()
-
-    layout = window.layout()
     central_widget = window.findChild(QWidget, "centralwidget")
 
     inserer_button = central_widget.findChild(QPushButton,"inserer_button")
@@ -39,7 +30,7 @@ if __name__ == "__main__":
     supprimer_button = central_widget.findChild(QPushButton,"supprimer_button")
 
     nom_bonhomme = central_widget.findChild(QLineEdit,"nom_bonhomme")
-    QTextBrowser = central_widget.findChild(QPushButton,"output_box")
+    output_box = central_widget.findChild(QTextBrowser,"output_box")
     
     corps_text_input = central_widget.findChild(QLineEdit,"corps_text_input")
     tete_text_input = central_widget.findChild(QLineEdit,"tete_text_input")
@@ -49,8 +40,7 @@ if __name__ == "__main__":
     doigts_text_input = central_widget.findChild(QLineEdit,"doigts_text_input")
     yeux_text_input = central_widget.findChild(QLineEdit,"yeux_text_input")
 
-
-    window.show()
+    inserer_button.clicked.connect(say_hello())
 
     
 
