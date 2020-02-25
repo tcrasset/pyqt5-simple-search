@@ -170,7 +170,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    filename = sys.argv[1]
+    # filename = sys.argv[1]
+    filename = 'tables.txt'
     window = MainWindow(filename)
 
     sys.exit(app.exec_())
