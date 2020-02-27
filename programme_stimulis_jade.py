@@ -17,7 +17,10 @@ class MainWindow(QMainWindow):
         self.supprimer_button.clicked.connect(self.delete_from_table)
 
         self.output_field.setReadOnly(True)
-        self.output_field.append("Messages :")
+        self.output_field.append("Messages :\n")
+
+        self.table_visualizer.setReadOnly(True)
+        self.visualize_table()
 
         self.show()
 
@@ -29,8 +32,8 @@ class MainWindow(QMainWindow):
             self.rechercher_button = self.central_widget.findChild(QPushButton,"rechercher_button")
             self.supprimer_button = self.central_widget.findChild(QPushButton,"supprimer_button")
             
-            self.nom_bonhomme = self.central_widget.findChild(QLineEdit,"nom_bonhomme")
             self.output_field = self.central_widget.findChild(QTextEdit,"output_field")
+            self.table_visualizer = self.central_widget.findChild(QTextEdit,"table_visualizer")
             
             self.corps_text_input = self.central_widget.findChild(QLineEdit,"corps_text_input")
             self.tete_text_input = self.central_widget.findChild(QLineEdit,"tete_text_input")
@@ -39,6 +42,16 @@ class MainWindow(QMainWindow):
             self.jambes_text_input = self.central_widget.findChild(QLineEdit,"jambes_text_input")
             self.doigts_text_input = self.central_widget.findChild(QLineEdit,"doigts_text_input")
             self.yeux_text_input = self.central_widget.findChild(QLineEdit,"yeux_text_input")
+
+    def visualize_table(self):
+
+        self.table_visualizer.setText("Ficher texte \"{}\" :\n".format(filename))
+
+        with open(self.filename, "r") as table:
+            for line in table.readlines():
+                entry_as_list = line.replace("\n", '').split(",")[:-1]
+                self.table_visualizer.append("{}".format(entry_as_list))
+
 
     def _get_input_list(self) -> list:
         input_list = []
@@ -62,6 +75,14 @@ class MainWindow(QMainWindow):
 
 
     def check_if_in_table(self, input_list : list = None, standalone : bool = True) -> bool:
+        """
+        Function that checks whether a given input_list is already in the table.
+        Can be called either by itself, in this case the boolean outputdoesn't matter but an 
+        output is produced on the GUI.
+        Or it is called by the methods add_to_table() or _delete_from_table() where the boolean
+        value is used but there is no output on the GUI.
+
+        """
         print("In function check_if_in_table()")
         
         if(not input_list):
@@ -85,6 +106,8 @@ class MainWindow(QMainWindow):
                             self.output_field.append("{} est déjà présent dans la table".format(input_list))
 
                         return True
+                if(standalone):
+                    self.output_field.append("{} n'est pas présent dans la table".format(input_list))
 
         return False
 
@@ -104,6 +127,8 @@ class MainWindow(QMainWindow):
                 status = self._add_one_line(table, input_list)
                 if(status):
                     self.output_field.append("{} inséré.".format(input_list))
+            self.visualize_table()
+
 
 
     def _is_input_numeric(self, input_list) -> bool:
@@ -164,9 +189,12 @@ class MainWindow(QMainWindow):
                     if(entry != input_list):
                         print("Writing {} to file".format(entry))
                         self._add_one_line(table, entry)
+
+            self.visualize_table()
         else:
             print("{} not in file".format(input_list))
             self.output_field.append("{} n'est PAS présent dans la table. Abandon...".format(input_list))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -153,29 +153,6 @@
      <string>Supprimer</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="nom_bonhomme">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>100</y>
-      <width>113</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>80</y>
-      <width>111</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nom bonhomme</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="corps_text_input">
     <property name="geometry">
      <rect>
@@ -253,6 +230,16 @@
       <y>140</y>
       <width>401</width>
       <height>401</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="table_visualizer">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>261</width>
+      <height>531</height>
      </rect>
     </property>
    </widget>
